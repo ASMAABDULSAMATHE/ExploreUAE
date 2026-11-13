@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seven Emirates | Explore UAE</title>
+  <link rel="stylesheet" href="css/shared-styles.css">
+  <script src="js/site-interactions.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">UAE</span>
+      <span>Explore UAE</span>
+    </a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+      ☰
+    </button>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a class="active" href="seven-emirates.html">Seven Emirates</a>
+      <a href="index.html#discover">Discover</a>
+    </nav>
+    <a class="nav-cta" href="#emirate-list">Find your place ↘</a>
+  </header>
+  <main>
+    <section class="page-hero emirates-hero">
+      <div class="hero-content">
+        <p class="eyebrow">ONE COUNTRY · SEVEN PERSONALITIES</p>
+        <h1>Seven places.<br><em>Endless ways to explore.</em></h1>
+        <p class="hero-copy">
+          Choose your pace: city views, heritage, mountain air, or a day by the sea.
+        </p>
+      </div>
+    </section>
+    <section class="section emirates-section">
+      <p class="section-kicker">GET TO KNOW THE UAE</p>
+      <div class="section-heading">
+        <h2>Seven emirates,<br><em>one welcoming home.</em></h2>
+        <p>Choose a filter to find a place that fits your interests.</p>
+      </div>
+      <div class="filter-bar">
+        <span>SHOW ME:</span>
+        <button class="filter-button selected" data-filter="all">All</button>
+        <button class="filter-button" data-filter="city">City life</button>
+        <button class="filter-button" data-filter="coast">Coast & culture</button>
+        <button class="filter-button" data-filter="nature">Nature & outdoors</button>
+      </div>
+      <p class="filter-status" aria-live="polite">Showing all seven emirates.</p>
+      <div class="emirate-grid" id="emirate-list">
+        <article class="emirate-card" id="abu-dhabi" data-tags="city coast nature">
+          <img
+            class="emirate-photo"
+            src="https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=800&q=80"
+            alt="Landmark architecture in Abu Dhabi"
+          >
+          <div class="card-content">
+            <p class="photo-label">THE CAPITAL</p>
+            <h3>Abu Dhabi</h3>
+            <p>A capital of culture, island escapes, and desert scenery.</p>
+            <div class="tags">
+              <span>Culture</span><span>Islands</span><span>Desert</span>
+            </div>
+            <button class="learn-button" data-emirate="abu-dhabi">Learn more ↗</button>
+          </div>
+        </article>
+        <article class="emirate-card" id="dubai" data-tags="city coast">
+          <img
+            class="emirate-photo"
+            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80"
+            alt="Modern city skyline"
+          >
+          <div class="card-content">
+            <p class="photo-label">THE ICON</p>
+            <h3>Dubai</h3>
+            <p>A mix of striking architecture, beaches, and old-town charm.</p>
+            <div class="tags">
+              <span>City</span><span>Shopping</span><span>Beach</span>
+            </div>
+            <button class="learn-button" data-emirate="dubai">Learn more ↗</button>
+          </div>
+        </article>
+        <article class="emirate-card" id="sharjah" data-tags="city coast">
+          <img
+            class="emirate-photo"
+            src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=800&q=80"
+            alt="Art and culture"
+          >
+          <div class="card-content">
+            <p class="photo-label">THE CULTURAL HEART</p>
+            <h3>Sharjah</h3>
+            <p>Discover museums, art spaces, heritage, and a lively waterfront.</p>
+            <div class="tags">
+              <span>Art</span><span>Heritage</span><span>Waterfront</span>
+            </div>
+            <button class="learn-button" data-emirate="sharjah">Learn more ↗</button>
+          </div>
+        </article>
+        <article class="emirate-card" id="ajman" data-tags="coast nature">
+          <img
+            class="emirate-photo"
+            src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80"
+            alt="Sea and coastline"
+          >
+          <div class="card-content">
+            <p class="photo-label">THE EASY ESCAPE</p>
+            <h3>Ajman</h3>
+            <p>A relaxed coastal break with a welcoming feel.</p>
+            <div class="tags">
+              <span>Beach</span><span>Heritage</span><span>Relax</span>
+            </div>
+            <button class="learn-button" data-emirate="ajman">Learn more ↗</button>
+          </div>
+        </article>
+        <article class="emirate-card" id="umm-al-quwain" data-tags="coast nature">
+          <img
+            class="emirate-photo"
+            src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80"
+            alt="Calm sea"
+          >
+          <div class="card-content">
+            <p class="photo-label">THE QUIET COAST</p>
+            <h3>Umm Al Quwain</h3>
+            <p>Slow down among calm shores, mangroves, and open water.</p>
+            <div class="tags">
+              <span>Nature</span><span>Coast</span><span>Quiet</span>
+            </div>
+            <button class="learn-button" data-emirate="umm-al-quwain">Learn more ↗</button>
+          </div>
+        </article>
+        <article class="emirate-card" id="ras-al-khaimah" data-tags="nature coast">
+          <img
+            class="emirate-photo"
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+            alt="Mountain landscape"
+          >
+          <div class="card-content">
+            <p class="photo-label">THE ADVENTURE</p>
+            <h3>Ras Al Khaimah</h3>
+            <p>Mountain trails, desert landscapes, and a beautiful coastline.</p>
+            <div class="tags">
+              <span>Mountains</span><span>Adventure</span><span>Beach</span>
+            </div>
+            <button class="learn-button" data-emirate="ras-al-khaimah">Learn more ↗</button>
+          </div>
+        </article>
+        <article class="emirate-card" id="fujairah" data-tags="nature coast">
+          <img
+            class="emirate-photo"
+            src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80"
+            alt="East coast sea"
+          >
+          <div class="card-content">
+            <p class="photo-label">THE EAST COAST</p>
+            <h3>Fujairah</h3>
+            <p>Explore the sea, mountains, and history on the east coast.</p>
+            <div class="tags">
+              <span>Sea</span><span>Mountains</span><span>History</span>
+            </div>
+            <button class="learn-button" data-emirate="fujairah">Learn more ↗</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <dialog class="details-dialog">
+    <button class="close-dialog" aria-label="Close">×</button>
+    <p class="section-kicker">A CLOSER LOOK</p>
+    <h2 class="dialog-title"></h2>
+    <p class="dialog-description"></p>
+    <div class="trip-idea">
+      <strong>TRIP IDEA</strong>
+      <p class="dialog-tip"></p>
+    </div>
+    <button class="button button-dark done-button">Close</button>
+  </dialog>
+  <footer class="site-footer">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">UAE</span>
+      <span>Explore UAE</span>
+    </a>
+    <p>A student project celebrating the many sides of the UAE.</p>
+  </footer>
+</body>
+</html>

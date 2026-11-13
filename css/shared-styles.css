@@ -1,0 +1,455 @@
+:root {
+  --green: #254c3d;
+  --red: #c94b40;
+  --gold: #a77b42;
+  --ink: #17251f;
+  --muted: #68736d;
+  --paper: #f3e7d2;
+  --sand: #e9dcc5;
+  --card: #f8f0e3;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: Arial, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  line-height: 1.6;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+}
+/* Header and navigation */
+.site-header {
+  min-height: 78px;
+  padding: 12px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  background: var(--paper);
+  border-bottom: 1px solid #e4d8c4;
+  position: relative;
+  z-index: 5;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green);
+  font-weight: bold;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: white;
+  background: var(--green);
+  font-size: 11px;
+}
+.main-nav {
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+}
+.main-nav a,
+.nav-cta {
+  color: #59665e;
+  font-size: 13px;
+}
+.main-nav a.active {
+  color: var(--green);
+  border-bottom: 2px solid var(--red);
+  font-weight: bold;
+}
+.nav-cta {
+  color: var(--green);
+  font-weight: bold;
+}
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: none;
+  color: var(--green);
+  font-size: 25px;
+}
+/* Hero sections */
+.hero,
+.page-hero {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+}
+.home-hero {
+  background-image:
+    linear-gradient(90deg, rgba(15, 30, 24, .78), rgba(15, 30, 24, .12)),
+    url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1800&q=85");
+}
+.emirates-hero {
+  min-height: 380px;
+  background-image:
+    linear-gradient(90deg, rgba(15, 30, 24, .75), rgba(15, 30, 24, .1)),
+    url("https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1800&q=85");
+}
+.hero-content {
+  max-width: 700px;
+  margin-left: 12%;
+  padding: 55px 20px 55px 0;
+}
+.eyebrow,
+.section-kicker {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.eyebrow {
+  color: #f2e8d7;
+}
+.hero h1 {
+  margin: 20px 0;
+  font-size: clamp(45px, 6vw, 72px);
+  line-height: 1.1;
+}
+h1 em,
+h2 em {
+  font-family: var(--serif);
+}
+.hero-copy {
+  max-width: 440px;
+  color: #f0eee8;
+}
+.button {
+  display: inline-block;
+  padding: 12px 18px;
+  border: 0;
+  font-size: 12px;
+  font-weight: bold;
+}
+.button-light {
+  color: var(--ink);
+  background: var(--paper);
+}
+.button-dark {
+  color: white;
+  background: var(--green);
+}
+/* General content sections */
+.section {
+  max-width: 1120px;
+  margin: auto;
+  padding: 75px 35px;
+}
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  gap: 50px;
+}
+.section h2,
+.feature h2 {
+  font-size: 38px;
+  line-height: 1.2;
+}
+.intro-grid p,
+.feature-text > p:not(.section-kicker),
+.section-heading > p {
+  color: var(--muted);
+  font-size: 14px;
+}
+.text-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--red);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: bold;
+}
+/* Home page sections */
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--sand);
+}
+.feature-image {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+.feature-text {
+  align-self: center;
+  padding: 45px 12%;
+}
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+}
+.moment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.moment-card {
+  min-height: 260px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.moment-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, .65), transparent);
+}
+.moment-card span,
+.moment-card strong {
+  position: relative;
+}
+.moment-card span {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.moment-card strong {
+  font: bold 23px var(--serif);
+}
+.desert-card {
+  background-image: url("https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=800&q=80");
+}
+.city-card {
+  background-image: url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80");
+}
+.mountain-card {
+  background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80");
+}
+/* Filters and emirate cards */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 25px 0 10px;
+  padding: 15px 0;
+  border-top: 1px solid #e0d4c0;
+  border-bottom: 1px solid #e0d4c0;
+}
+.filter-bar > span {
+  margin-right: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: bold;
+}
+.filter-button {
+  padding: 7px 13px;
+  border: 1px solid #cfc3af;
+  border-radius: 20px;
+  color: var(--green);
+  background: transparent;
+  font-size: 11px;
+}
+.filter-button.selected,
+.filter-button:hover {
+  color: white;
+  background: var(--green);
+}
+.filter-status {
+  min-height: 20px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.emirate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.emirate-card {
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid #e3d8c6;
+}
+.emirate-card[hidden] {
+  display: none;
+}
+.emirate-photo {
+  display: block;
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+}
+.card-content {
+  padding: 14px 16px 16px;
+}
+.photo-label {
+  margin: 0 0 5px;
+  color: var(--red);
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.card-content h3 {
+  margin: 0;
+  color: var(--green);
+  font: bold 21px var(--serif);
+}
+.card-content > p:not(.photo-label) {
+  min-height: 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tags span {
+  padding: 4px 8px;
+  color: var(--green);
+  background: var(--sand);
+  font-size: 10px;
+}
+.learn-button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px 0 0;
+  border: 0;
+  border-top: 1px solid #e3d8c6;
+  color: var(--green);
+  background: transparent;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+}
+/* Emirate information popup */
+.details-dialog {
+  width: min(460px, 90%);
+  padding: 35px;
+  border: 1px solid #e3d8c6;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 20px 70px #0005;
+}
+.details-dialog::backdrop {
+  background: #14231dcc;
+}
+.close-dialog {
+  float: right;
+  border: 0;
+  color: var(--green);
+  background: transparent;
+  font-size: 25px;
+}
+.dialog-title {
+  color: var(--green);
+  font: bold 30px var(--serif);
+}
+.dialog-description,
+.trip-idea p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.trip-idea {
+  margin: 20px 0;
+  padding: 12px;
+  background: var(--sand);
+}
+.trip-idea strong {
+  color: var(--red);
+  font-size: 10px;
+}
+/* Footer */
+.site-footer {
+  padding: 25px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--sand);
+}
+.site-footer p {
+  color: var(--muted);
+  font-size: 12px;
+}
+/* Tablet layout */
+@media (max-width: 800px) {
+  .emirate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .site-header {
+    padding: 12px 5%;
+  }
+  .main-nav {
+    gap: 15px;
+  }
+}
+/* Phone layout */
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: block;
+    order: 3;
+  }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    padding: 18px;
+    flex-direction: column;
+    background: var(--paper);
+  }
+  .main-nav.open {
+    display: flex;
+  }
+  .nav-cta {
+    margin-left: auto;
+    font-size: 11px;
+  }
+  .hero-content {
+    margin-left: 7%;
+    padding-right: 7%;
+  }
+  .intro-grid,
+  .feature {
+    grid-template-columns: 1fr;
+  }
+  .feature-text {
+    padding: 35px 7%;
+  }
+  .moment-grid,
+  .emirate-grid {
+    grid-template-columns: 1fr;
+  }
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
