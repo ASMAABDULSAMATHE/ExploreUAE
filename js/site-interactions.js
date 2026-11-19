@@ -106,3 +106,44 @@ if (detailsDialog) {
       detailsDialog.close();
     });
 }
+const hiddenGemInfo = {
+  "hatta-pool": {
+    title: "Hatta Secret Pool (Dubai)",
+    description: "Tucked deep within the rocky Hajar mountain range, this secluded pool is accessible via a rugged trail hike, offering a refreshing escape.",
+    tip: "Wear sturdy hiking shoes and bring plenty of drinking water."
+  },
+  "al-madam": {
+    title: "Al Madam Ghost Town (Sharjah)",
+    description: "An abandoned village swallowed half-way by shifting desert sands, providing an eerie yet fascinating look at history and desert dynamics.",
+    tip: "Best visited during late afternoon for stunning photography lighting."
+  },
+  "wadi-abadilah": {
+    title: "Wadi Abadilah (Fujairah)",
+    description: "A lush wadi featuring flowing water streams, rocky pathways, and historical agricultural terraces bordered by majestic mountains.",
+    tip: "Watch your step on wet rocks and enjoy the local farm terraces."
+  }
+};
+
+const gemDialog = document.querySelector(".details-dialog");
+const gemCards = document.querySelectorAll(".moment-card[data-gem]");
+
+if (gemDialog && gemCards.length > 0) {
+  gemCards.forEach(function (card) {
+    card.addEventListener("click", function () {
+      const info = hiddenGemInfo[card.dataset.gem];
+      if (info) {
+        gemDialog.querySelector(".dialog-title").textContent = info.title;
+        gemDialog.querySelector(".dialog-description").textContent = info.description;
+        gemDialog.querySelector(".dialog-tip").textContent = info.tip;
+        gemDialog.showModal();
+      }
+    });
+  });
+
+  const gemCloseButton = gemDialog.querySelector(".close-dialog, .done-button");
+  if (gemCloseButton) {
+    gemCloseButton.addEventListener("click", function () {
+      gemDialog.close();
+    });
+  }
+}
