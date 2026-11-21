@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ExploreUAE - Explore the Seven Emirates">
+<title>Explore the Seven Emirates | ExploreUAE</title>
+<link rel="stylesheet" href="css/shared-styles.css">
+<script src="js/site-interactions.js" defer></script>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="index.html">Explore<span>UAE</span></a>
+<ul><li><a href="index.html">Home</a></li><li><a href="emirates.html">Emirates</a></li><li><a href="landmarks.html">Landmarks</a></li><li><a href="adventures.html">Adventures</a></li><li><a href="food.html">Food</a></li><li><a href="culture.html">Culture</a></li><li><a href="hidden-gems.html">Hidden Gems</a></li><li><a href="plan.html">Plan Your Trip</a></li><li><a href="tips.html">Travel Tips</a></li><li><a href="events.html">Events</a></li></ul>
+<div class="tools"><button id="burger">☰</button></div>
+</nav></div></header>
+<main>
+<div class="hero small">
+<div class="content"><h1>Explore the Seven Emirates</h1><p>One federation, seven distinct personalities.</p></div></div>
+<section><div class="wrap"><h2 class="title">The Seven Emirates</h2><p class="sub">Search or filter to find your favourite.</p><div class="row" style="max-width:400px"><input id="search" placeholder="Search emirates..."></div><div class="filters"><button class="on" data-f="all">All</button><button data-f="Adventure">Adventure</button><button data-f="Capital">Capital</button><button data-f="Coast">Coast</button><button data-f="Culture">Culture</button><button data-f="Metropolis">Metropolis</button><button data-f="Nature">Nature</button></div><div class="grid"><article class="card reveal" data-cat="Capital" style="--h:15"><div class="pic"><img src="images/abu-dhabi.jpg" alt="Abu Dhabi" loading="lazy" onerror="this.style.display='none'"></div>
+<div class="body"><span class="tag">Capital</span><h3>Abu Dhabi</h3><p>The capital and largest emirate, mixing culture, nature and grand architecture.</p><button class="more" data-title="Abu Dhabi" data-info="Abu Dhabi covers most of the country’s land area and includes Yas Island, Saadiyat Island and the Liwa desert.">Read more</button></div></article>
+<article class="card reveal" data-cat="Metropolis" style="--h:62"><div class="pic"><img src="images/dubai.jpg" alt="Dubai" loading="lazy" onerror="this.style.display='none'"></div>
+<div class="body"><span class="tag">Metropolis</span><h3>Dubai</h3><p>The global city of records, shopping and futuristic skylines.</p><button class="more" data-title="Dubai" data-info="Dubai grew from a pearl-diving and trading port into a worldwide hub for tourism, aviation and business.">Read more</button></div></article>
+<article class="card reveal" data-cat="Culture" style="--h:109"><div class="pic"><img src="images/sharjah.jpg" alt="Sharjah" loading="lazy" onerror="this.style.display='none'"></div>
+<div class="body"><span class="tag">Culture</span><h3>Sharjah</h3><p>The cultural heart with dozens of museums and a strong arts scene.</p><button class="more" data-title="Sharjah" data-info="Sharjah was named a Capital of Islamic Culture and hosts a famous international book fair every year.">Read more</button></div></article>
+<article class="card reveal" data-cat="Coast" style="--h:156"><div class="pic"><img src="images/ajman.jpg" alt="Ajman" loading="lazy" onerror="this.style.display='none'"></div>
+<div class="body"><span class="tag">Coast</span><h3>Ajman</h3><p>A relaxed coastal emirate known for its fort and traditional dhow building.</p><button class="more" data-title="Ajman" data-info="Ajman is the smallest emirate and a quiet alternative to its busy neighbours.">Read more</button></div></article>
+<article class="card reveal" data-cat="Nature" style="--h:203"><div class="pic"><img src="images/umm-al-quwain.jpg" alt="Umm Al Quwain" loading="lazy" onerror="this.style.display='none'"></div>
+<div class="body"><span class="tag">Nature</span><h3>Umm Al Quwain</h3><p>Lagoons, mangroves and slow-paced seaside life.</p><button class="more" data-title="Umm Al Quwain" data-info="Umm Al Quwain offers kayaking, bird watching and an old fort-turned-museum.">Read more</button></div></article>
+<article class="card reveal" data-cat="Adventure" style="--h:250"><div class="pic"><img src="images/ras-al-khaimah.jpg" alt="Ras Al Khaimah" loading="lazy" onerror="this.style.display='none'"></div>
+<div class="body"><span class="tag">Adventure</span><h3>Ras Al Khaimah</h3><p>Home to Jebel Jais, the UAE’s highest peak area, and long beaches.</p><button class="more" data-title="Ras Al Khaimah" data-info="RAK is known for mountain adventures, including a record-setting zip line.">Read more</button></div></article>
+<article class="card reveal" data-cat="Coast" style="--h:297"><div class="pic"><img src="images/fujairah.jpg" alt="Fujairah" loading="lazy" onerror="this.style.display='none'"></div>
+<div class="body"><span class="tag">Coast</span><h3>Fujairah</h3><p>The only emirate fully on the Gulf of Oman, with mountains meeting the sea.</p><button class="more" data-title="Fujairah" data-info="Fujairah is popular for snorkelling, diving at Snoopy Island and Al Badiyah Mosque, one of the oldest in the UAE.">Read more</button></div></article>
+</div></div></section>
+</main>
+<div class="modal" id="modal"><div class="box"><button class="x">&times;</button><h2 id="mTitle"></h2><p id="mText"></p></div></div>
+<footer><div class="wrap"><p>&copy; ExploreUAE</p></div></footer>
+</body>
+</html>
