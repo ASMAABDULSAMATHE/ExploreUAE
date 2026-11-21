@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ExploreUAE - Plan Your Trip">
+<title>Plan Your Trip | ExploreUAE</title>
+<link rel="stylesheet" href="css/shared-styles.css">
+<script src="js/site-interactions.js" defer></script>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="index.html">Explore<span>UAE</span></a>
+<ul><li><a href="index.html">Home</a></li><li><a href="emirates.html">Emirates</a></li><li><a href="landmarks.html">Landmarks</a></li><li><a href="adventures.html">Adventures</a></li><li><a href="food.html">Food</a></li><li><a href="culture.html">Culture</a></li><li><a href="hidden-gems.html">Hidden Gems</a></li><li><a href="plan.html">Plan Your Trip</a></li><li><a href="tips.html">Travel Tips</a></li><li><a href="events.html">Events</a></li></ul>
+<div class="tools"><button id="burger">☰</button></div>
+</nav></div></header>
+<main>
+<div class="hero small">
+<div class="content"><h1>Plan Your Trip</h1><p>Itineraries, hotels, transport and budget in one place.</p></div></div>
+<section><div class="wrap"><h2 class="title">Plan Your Trip</h2><p class="sub">Itineraries, places to stay, how to move around and what it costs.</p><div class="tabs"><button data-t="t3" class="on">3 days</button><button data-t="t5" class="">5 days</button><button data-t="t7" class="">7 days</button></div><div class="panel on" id="t3"><ul style="padding-left:22px;line-height:2"><li>Day 1 – Dubai: Burj Khalifa, Dubai Mall, fountain show.</li><li>Day 2 – Abu Dhabi: Grand Mosque, Louvre, Corniche.</li><li>Day 3 – Desert safari and BBQ camp.</li></ul></div><div class="panel " id="t5"><ul style="padding-left:22px;line-height:2"><li>Day 1 – Dubai icons and old Dubai souks.</li><li>Day 2 – Abu Dhabi culture.</li><li>Day 3 – Sharjah museums and heritage.</li><li>Day 4 – Ras Al Khaimah: Jebel Jais.</li><li>Day 5 – Fujairah beach and snorkelling.</li></ul></div><div class="panel " id="t7"><ul style="padding-left:22px;line-height:2"><li>Days 1–2 – Dubai.</li><li>Day 3 – Abu Dhabi.</li><li>Day 4 – Al Ain oasis.</li><li>Day 5 – Sharjah and Ajman.</li><li>Day 6 – RAK adventures.</li><li>Day 7 – Hatta or Fujairah relaxation.</li></ul></div></div></section><section><div class="wrap"><h2 class="title">Accommodation</h2><p class="sub">Approximate nightly prices in AED.</p><div class="twrap"><table class="sort"><caption>Where to stay</caption><thead><tr><th>Type</th><th>Typical areas</th><th>Price / night (AED)</th><th>Notes</th></tr></thead><tbody><tr><td>Budget hostel / 2-3</td><td>Deira, Bur Dubai, Sharjah</td><td>150–350</td><td>Clean, close to metro</td></tr><tr><td>Mid-range 4</td><td>Downtown, Marina, Abu Dhabi city</td><td>400–900</td><td>Pool, breakfast</td></tr><tr><td>Luxury 5</td><td>Palm Jumeirah, Saadiyat</td><td>1,200+</td><td>Beach, spa, fine dining</td></tr><tr><td>Desert resort</td><td>Al Maha, Liwa, RAK</td><td>1,500+</td><td>Private pool villas</td></tr><tr><td>Holiday home</td><td>Marina, JBR</td><td>500–1,500</td><td>Kitchen, families</td></tr></tbody></table></div></div></section><section><div class="wrap"><h2 class="title">Transportation</h2><p class="sub">Approximate fares in AED.</p><div class="twrap"><table class="sort"><caption>Getting around</caption><thead><tr><th>Option</th><th>Where</th><th>Fare (AED)</th><th>Notes</th></tr></thead><tbody><tr><td>Dubai Metro</td><td>Dubai</td><td>3–8.5</td><td>Fast, air-conditioned, Nol card needed</td></tr><tr><td>Taxi / ride-hailing</td><td>All emirates</td><td>12+ base</td><td>Good for short trips</td></tr><tr><td>Public bus</td><td>All emirates</td><td>3–10</td><td>Cheapest, slower</td></tr><tr><td>Intercity bus</td><td>Between emirates</td><td>10–30</td><td>Dubai ↔ Abu Dhabi routes</td></tr><tr><td>Rental car</td><td>All emirates</td><td>120–300 /day</td><td>Needs licence, watch tolls</td></tr></tbody></table></div></div></section><section><div class="wrap"><h2 class="title">Budget Calculator</h2><p class="sub">Adjust the controls to see a live estimate.</p><form id="budget"><h3>Trip budget calculator</h3><br>
+<div class="row"><label for="days">Days: <b id="dv">5</b></label><input type="range" id="days" min="1" max="14" value="5"></div>
+<div class="row"><label for="people">Travellers: <b id="pv">2</b></label><input type="range" id="people" min="1" max="8" value="2"></div>
+<div class="row"><label for="hotel">Hotel (per room / night)</label><select id="hotel"><option value="250">Budget – AED 250</option><option value="650" selected>Mid-range – AED 650</option><option value="1500">Luxury – AED 1,500</option></select></div>
+<div class="row"><label for="food">Food &amp; transport (per person / day)</label><select id="food"><option value="120">Light – AED 120</option><option value="250" selected>Medium – AED 250</option><option value="500">Premium – AED 500</option></select></div>
+<div class="row"><label>Activities (per person)</label><label><input type="checkbox" name="act" value="300">Desert safari (300)</label><label><input type="checkbox" name="act" value="200">Burj Khalifa (200)</label><label><input type="checkbox" name="act" value="650">Skydive (650)</label><label><input type="checkbox" name="act" value="350">Theme park (350)</label></div>
+<b>Estimated total:</b><p class="result" id="total"></p></form></div></section>
+</main>
+<div class="modal" id="modal"><div class="box"><button class="x">&times;</button><h2 id="mTitle"></h2><p id="mText"></p></div></div>
+<footer><div class="wrap"><p>&copy; ExploreUAE</p></div></footer>
+</body>
+</html>
