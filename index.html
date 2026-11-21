@@ -1,131 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explore UAE | Home</title>
-  <link rel="stylesheet" href="css/shared-styles.css">
-  <script src="js/site-interactions.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ExploreUAE - Home">
+<title>Home | ExploreUAE</title>
+<link rel="stylesheet" href="css/shared-styles.css">
+<script src="js/site-interactions.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">UAE</span>
-      <span>Explore UAE</span>
-    </a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
-      ☰
-    </button>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a class="active" href="index.html">Home</a>
-      <a href="seven-emirates.html">Seven Emirates</a>
-      <a href="#discover">Discover</a>
-    </nav>
-    <a class="nav-cta" href="seven-emirates.html">Start exploring ↗</a>
-  </header>
+<header><div class="wrap"><nav>
+<a class="logo" href="index.html">Explore<span>UAE</span></a>
+<ul><li><a href="index.html">Home</a></li><li><a href="emirates.html">Emirates</a></li><li><a href="landmarks.html">Landmarks</a></li><li><a href="adventures.html">Adventures</a></li><li><a href="food.html">Food</a></li><li><a href="culture.html">Culture</a></li><li><a href="hidden-gems.html">Hidden Gems</a></li><li><a href="plan.html">Plan Your Trip</a></li><li><a href="tips.html">Travel Tips</a></li><li><a href="events.html">Events</a></li></ul>
+<div class="tools"><button id="burger">☰</button></div>
+</nav></div></header>
 <main>
-    <section class="hero home-hero">
-      <div class="hero-content">
-        <p class="eyebrow">SEVEN EMIRATES · ONE JOURNEY</p>
-        <h1>Find your own<br><em>kind of wonder.</em></h1>
-        <p class="hero-copy">
-          From golden dunes to lively city skylines, discover the places
-          and stories that make the UAE unforgettable.
-        </p>
-        <a class="button button-light" href="seven-emirates.html">
-          Explore the emirates →
-        </a>
-      </div>
-    </section>
-    <section class="section intro" id="discover">
-      <p class="section-kicker">WELCOME TO THE UAE</p>
-      <div class="intro-grid">
-        <h2>A small country<br>with <em>big horizons.</em></h2>
-        <div>
-          <p>
-            The United Arab Emirates brings together seven unique emirates,
-            each with its own character. Discover modern cities, beautiful
-            beaches, mountain landscapes, and a rich heritage.
-          </p>
-          <a class="text-link" href="seven-emirates.html">
-            Meet the seven emirates ↗
-          </a>
-        </div>
-      </div>
-    </section>
-    <section class="feature">
-      <img
-        class="feature-image"
-        src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1200&q=85"
-        alt="Golden desert dunes"
-      >
-      <div class="feature-text">
-        <p class="section-kicker">A PLACE OF CONTRASTS</p>
-        <h2>Tradition meets<br><em>tomorrow.</em></h2>
-        <p>
-          Explore historic neighbourhoods, then watch the city lights come
-          alive after sunset. The UAE makes room for both.
-        </p>
-        <a class="button button-dark" href="seven-emirates.html">
-          See what awaits →
-        </a>
-      </div>
-    </section>
-    <section class="section moments">
-      <p class="section-kicker">MAKE IT YOURS</p>
-      <div class="section-heading">
-        <h2>What will you <em>discover?</em></h2>
-        <a class="text-link" href="seven-emirates.html">View all emirates ↗</a>
-      </div>
-      <div class="moment-grid">
-        <a class="moment-card desert-card" href="seven-emirates.html#abu-dhabi">
-          <span>01 / LANDSCAPES</span>
-          <strong>Wide-open<br>desert skies</strong>
-        </a>
-        <a class="moment-card city-card" href="seven-emirates.html#dubai">
-          <span>02 / CITY LIFE</span>
-          <strong>A skyline that<br>keeps reaching</strong>
-        </a>
-        <a class="moment-card mountain-card" href="seven-emirates.html#fujairah">
-          <span>03 / OUTDOORS</span>
-          <strong>Find a quieter<br>kind of adventure</strong>
-        </a>
-      </div>
-    </section>
-    <section class="section moments" id="hidden-gems">
-      <p class="section-kicker">ADVENTURES & ACTIVITIES</p>
-      <div class="section-heading">
-        <h2>Hidden Gems of the <em>UAE</em></h2>
-        <span class="filter-status">Click a card to learn more.</span>
-      </div>
-      <div class="moment-grid">
-        <div class="moment-card" data-gem="hatta-pool" style="cursor: pointer; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80') center/cover;">
-          <span>01 / DUBAI</span>
-          <strong>Hatta Secret Pool<br><em>Hiking & Swimming</em></strong>
-        </div>
-        <div class="moment-card" data-gem="al-madam" style="cursor: pointer; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=800&q=80') center/cover;">
-          <span>02 / SHARJAH</span>
-          <strong>Al Madam Ghost Town<br><em>Desert Exploration</em></strong>
-        </div>
-        <div class="moment-card" data-gem="wadi-abadilah" style="cursor: pointer; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80') center/cover;">
-          <span>03 / FUJAIRAH</span>
-          <strong>Wadi Abadilah<br><em>Stream Hiking</em></strong>
-        </div>
-      </div>
-    </section>
-  </main>
-  <dialog class="details-dialog">
-  <h3 class="dialog-title"></h3>
-  <p class="dialog-description"></p>
-  <p><strong>Tip:</strong> <span class="dialog-tip"></span></p>
-  <button class="close-dialog done-button" type="button">Close</button>
-</dialog>
-  <footer class="site-footer">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">UAE</span>
-      <span>Explore UAE</span>
-    </a>
-    <p>A student project celebrating the many sides of the UAE.</p>
-  </footer>
+<div class="hero">
+<div class="content hero-split"><figure class="hero-pic"><img src="images/proud-of-uae.jpg" alt="Proud of UAE: the UAE flag flying above an arched building" width="1920" height="1080"></figure><div class="hero-text"><h1>ExploreUAE</h1><p>Seven emirates. One unforgettable journey.</p><a class="btn" href="emirates.html">Start exploring</a><a class="btn alt" href="plan.html">Plan my trip</a></div></div></div>
+<div class="stats"><div class="wrap grid reveal">
+<div><b data-count="7">0</b>Emirates</div><div><b data-count="828">0</b>Metres: Burj Khalifa</div><div><b data-count="1971">0</b>Year of the Union</div><div><b data-count="200">0</b>Nationalities</div></div></div><section><div class="wrap"><h2 class="title">Why the UAE?</h2><p class="sub">From golden dunes to glittering skylines, seven emirates offer seven different adventures.</p><div class="grid"><div class="card reveal"><div class="body"><h3>Deserts</h3><p>Rolling red dunes, oases and starry night camps.</p></div></div><div class="card reveal"><div class="body"><h3>Skylines</h3><p>Home to some of the tallest buildings on Earth.</p></div></div><div class="card reveal"><div class="body"><h3>Beaches</h3><p>Gulf and Gulf of Oman coastlines with warm water.</p></div></div><div class="card reveal"><div class="body"><h3>Culture</h3><p>Hospitality and traditions that go back generations.</p></div></div></div></div></section><section><div class="wrap"><h2 class="title">Quiz: which emirate suits you?</h2><p class="sub">Answer three quick questions.</p><form id="quiz"><div class="row"><b>1. Ideal morning?</b><br><label><input type="radio" name="a" value="Dubai">Shopping and brunch</label><label><input type="radio" name="a" value="RAK">Hiking a mountain</label><label><input type="radio" name="a" value="Fujairah">Snorkelling</label></div>
+<div class="row"><b>2. Pick a souvenir</b><br><label><input type="radio" name="b" value="Abu Dhabi">Art print</label><label><input type="radio" name="b" value="Sharjah">Handmade book</label><label><input type="radio" name="b" value="Dubai">Gold jewellery</label></div>
+<div class="row"><b>3. Evening plan?</b><br><label><input type="radio" name="c" value="Abu Dhabi">Mosque at sunset</label><label><input type="radio" name="c" value="Sharjah">Museum visit</label><label><input type="radio" name="c" value="RAK">Campfire</label></div>
+<button class="btn">Show my match</button><p class="result" id="quizOut"></p></form></div></section>
+</main>
+<div class="modal" id="modal"><div class="box"><button class="x">&times;</button><h2 id="mTitle"></h2><p id="mText"></p></div></div>
+<footer><div class="wrap"><p>&copy; ExploreUAE</p></div></footer>
 </body>
 </html>
