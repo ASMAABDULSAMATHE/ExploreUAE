@@ -25,7 +25,7 @@ nav li a:hover,nav li a.active{background:var(--gold);color:#14213d}
 
 /* ----- Hero ----- */
 .hero{position:relative;min-height:88vh;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden;
- background:linear-gradient(rgba(20,33,61,.45),rgba(20,33,61,.7)),url(../images/hero-burj-khalifa.jpg) center/cover no-repeat,linear-gradient(180deg,#14213d,#f2994a)}
+ background:linear-gradient(rgba(20,33,61,.45),rgba(20,33,61,.7)),linear-gradient(180deg,#14213d,#f2994a)}
 .hero.small{min-height:40vh}
 .hero h1{font-size:clamp(2.2rem,6vw,4.4rem);text-shadow:0 4px 20px rgba(0,0,0,.4);animation:rise 1.2s both}
 .hero p{font-size:1.2rem;max-width:640px;margin:14px auto 24px;animation:rise 1.2s .3s both}
@@ -127,7 +127,7 @@ video{width:100%;border-radius:var(--r);box-shadow:var(--shadow);background:#000
 @keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
 @keyframes dusk{to{background-position:0 100%}}
 
-@media(max-width:860px){
+@media (max-width: 1200px) {
  #burger{display:inline-block}
  nav ul{position:absolute;top:64px;left:0;right:0;background:#14213d;flex-direction:column;display:none;padding:10px}
  nav ul.open{display:flex}

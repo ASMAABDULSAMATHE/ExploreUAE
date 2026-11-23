@@ -65,12 +65,20 @@ if (burger) {
 }
 
 var navLinks = document.getElementsByTagName('nav')[0].getElementsByTagName('a');
+
 var path = window.location.pathname;
+var currentPage = path.substring(path.lastIndexOf('/') + 1);
+
+if (currentPage === '') {
+    currentPage = 'index.html';
+}
+
 for (var n = 0; n < navLinks.length; n++) {
-  var href = navLinks[n].getAttribute('href');
-  if (path.substring(path.length - href.length) === href) {
-    addClass(navLinks[n], 'active');
-  }
+    var href = navLinks[n].getAttribute('href');
+
+    if (href === currentPage) {
+        addClass(navLinks[n], 'active');
+    }
 }
 
 function isVisible(el) {
@@ -122,48 +130,54 @@ window.addEventListener('scroll', checkScroll);
 window.addEventListener('load', checkScroll);
 checkScroll();
 
-function filterClick() {
-  var buttons = this.parentNode.getElementsByTagName('button');
-  for (var i = 0; i < buttons.length; i++) {
-    removeClass(buttons[i], 'on');
-  }
-  addClass(this, 'on');
+let currentFilter = 'all';
+let currentSearch = '';
 
-  var wanted = this.getAttribute('data-f');
-  var cards = getWithAttribute('data-cat');
-  for (var j = 0; j < cards.length; j++) {
-    var hide = wanted !== 'all' && cards[j].getAttribute('data-cat') !== wanted;
-    setClass(cards[j], 'hide', hide);
-  }
+function filterEmirateCards() {
+    const cards = document.querySelectorAll('[data-cat]');
+
+    cards.forEach(card => {
+        const category = card.getAttribute('data-cat');
+        const text = card.textContent.toLowerCase();
+
+        const matchesCategory =
+            currentFilter === 'all' || category === currentFilter;
+
+        const matchesSearch =
+            text.includes(currentSearch);
+
+        card.classList.toggle(
+            'hide',
+            !(matchesCategory && matchesSearch)
+        );
+    });
 }
 
-var filterBars = document.getElementsByClassName('filters');
-for (var f = 0; f < filterBars.length; f++) {
-  var filterButtons = filterBars[f].getElementsByTagName('button');
-  for (var b = 0; b < filterButtons.length; b++) {
-    filterButtons[b].addEventListener('click', filterClick);
-  }
-}
+document.querySelectorAll('[data-f]').forEach(button => {
+    button.addEventListener('click', function () {
+        currentFilter = this.getAttribute('data-f');
+        filterEmirateCards();
+    });
+});
 
-var searchBox = document.getElementById('search');
-if (searchBox) {
-  searchBox.addEventListener('input', function () {
-    var text = searchBox.value.toLowerCase();
-    var cards = getWithAttribute('data-cat');
-    for (var i = 0; i < cards.length; i++) {
-      var found = cards[i].textContent.toLowerCase().indexOf(text) !== -1;
-      setClass(cards[i], 'hide', !found);
-    }
-  });
+const searchInput = document.getElementById('search');
+
+if (searchInput) {
+    searchInput.addEventListener('input', function () {
+        currentSearch = this.value.toLowerCase().trim();
+        filterEmirateCards();
+    });
 }
 
 var modal = document.getElementById('modal');
 
+
 function openModal() {
-  document.getElementById('mTitle').innerHTML = this.getAttribute('data-title');
-  document.getElementById('mText').innerHTML = this.getAttribute('data-info');
-  addClass(modal, 'on');
+    document.getElementById('mTitle').textContent = this.getAttribute('data-title');
+    document.getElementById('mText').textContent = this.getAttribute('data-info');
+    addClass(modal, 'on');
 }
+
 
 if (modal) {
   var moreButtons = document.getElementsByClassName('more');
@@ -203,19 +217,15 @@ for (var t = 0; t < tabBars.length; t++) {
   }
 }
 
-function compareValues(x, y) {
-  var a = parseFloat(x);
-  var b = parseFloat(y);
-  if (!isNaN(a) && !isNaN(b)) {
-    return a - b;
-  }
-  if (x < y) {
-    return -1;
-  }
-  if (x > y) {
-    return 1;
-  }
-  return 0;
+function compareValues(a, b) {
+    const numA = parseFloat(a.replace(/,/g, '').replace(/[^\d.-]/g, ''));
+    const numB = parseFloat(b.replace(/,/g, '').replace(/[^\d.-]/g, ''));
+
+    if (!isNaN(numA) && !isNaN(numB)) {
+        return numA - numB;
+    }
+
+    return a.localeCompare(b);
 }
 
 function sortTable() {
@@ -259,48 +269,77 @@ for (var s = 0; s < sortTables.length; s++) {
     headers[h].addEventListener('click', sortTable);
   }
 }
+ 
 
 var quiz = document.getElementById('quiz');
+
 if (quiz) {
-  var places = ['Dubai', 'Abu Dhabi', 'Sharjah', 'RAK', 'Fujairah'];
-  var results = [
-    'Dubai - skyscrapers, shopping and nonstop energy!',
-    'Abu Dhabi - culture, museums and grand mosques.',
-    'Sharjah - art, heritage and museums.',
-    'Ras Al Khaimah - mountains, zip lines and adventure.',
-    'Fujairah - beaches, diving and calm coastlines.'
-  ];
+    var places = [
+        'Dubai',
+        'Abu Dhabi',
+        'Sharjah',
+        'Ajman',
+        'Umm Al Quwain',
+        'RAK',
+        'Fujairah'
+    ];
 
-  quiz.onsubmit = function () {
-    var scores = [0, 0, 0, 0, 0];
-    var inputs = quiz.getElementsByTagName('input');
-    for (var i = 0; i < inputs.length; i++) {
-      if (inputs[i].checked) {
-        for (var j = 0; j < places.length; j++) {
-          if (inputs[i].value === places[j]) {
-            scores[j] = scores[j] + 1;
-          }
+    var results = {
+        'Dubai': 'Dubai - skyscrapers, shopping and nonstop energy!',
+        'Abu Dhabi': 'Abu Dhabi - culture, museums and grand mosques.',
+        'Sharjah': 'Sharjah - art, heritage and museums.',
+        'Ajman': 'Ajman - peaceful beaches and a relaxed atmosphere.',
+        'Umm Al Quwain': 'Umm Al Quwain - nature, mangroves and water activities.',
+        'RAK': 'Ras Al Khaimah - mountains, zip lines and adventure.',
+        'Fujairah': 'Fujairah - beaches, diving and calm coastlines.'
+    };
+
+    quiz.onsubmit = function () {
+
+        // Check that all three questions have been answered
+        var questions = quiz.querySelectorAll('.quiz-question');
+
+        var allAnswered = Array.from(questions).every(function (question) {
+            return question.querySelector('input[type="radio"]:checked');
+        });
+
+        var output = document.getElementById('quizOut');
+
+        if (!allAnswered) {
+            output.textContent = 'Please answer all three questions!';
+            return false;
         }
-      }
-    }
 
-    var bestScore = 0;
-    var bestIndex = -1;
-    for (var p = 0; p < scores.length; p++) {
-      if (scores[p] > bestScore) {
-        bestScore = scores[p];
-        bestIndex = p;
-      }
-    }
+        // Calculate scores for each emirate
+        var scores = {};
 
-    var output = document.getElementById('quizOut');
-    if (bestIndex === -1) {
-      output.innerHTML = 'Please answer the questions first!';
-    } else {
-      output.innerHTML = 'Your match: ' + results[bestIndex];
-    }
-    return false;
-  };
+        for (var i = 0; i < places.length; i++) {
+            scores[places[i]] = 0;
+        }
+
+        var inputs = quiz.querySelectorAll('input[type="radio"]:checked');
+
+        inputs.forEach(function (input) {
+            if (scores[input.value] !== undefined) {
+                scores[input.value]++;
+            }
+        });
+
+        // Find the highest score
+        var highestScore = Math.max(...Object.values(scores));
+
+        // Collect all emirates with the highest score
+        var winners = places.filter(function (place) {
+            return scores[place] === highestScore;
+        });
+
+        // Randomly select a winner if there is a tie
+        var bestPlace = winners[Math.floor(Math.random() * winners.length)];
+
+        output.textContent = 'Your match: ' + results[bestPlace];
+
+        return false;
+    };
 }
 
 var budget = document.getElementById('budget');
@@ -333,12 +372,22 @@ if (budget) {
 
 var countdown = document.getElementById('countdown');
 
+
+
 function showCountdown() {
   var now = new Date();
-  var target = new Date(now.getFullYear(), 11, 2);
-  if (target < now) {
+
+// Show a greeting on UAE National Day (December 2)
+if (now.getMonth() === 11 && now.getDate() === 2) {
+    countdown.innerHTML = '<h2>Happy National Day!</h2>';
+    return;
+}
+
+var target = new Date(now.getFullYear(), 11, 2);
+
+if (target < now) {
     target = new Date(now.getFullYear() + 1, 11, 2);
-  }
+}
   var seconds = Math.floor((target - now) / 1000);
   var days = Math.floor(seconds / 86400);
   var hours = Math.floor(seconds / 3600) % 24;
@@ -365,12 +414,12 @@ function checkRule(rule, value) {
       }
       return '';
     case 'email':
-      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v)) {
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v))  {
         return 'Enter a valid email address.';
       }
       return '';
     case 'phone':
-      if (!/^(\+971|0)5\d{8}$/.test(v.replace(/\s/g, ''))) {
+      if (!/^(?:\+971|0)5\d{8}$/.test(v.replace(/\s/g, ''))) {
         return 'Use a UAE mobile like 0501234567.';
       }
       return '';
