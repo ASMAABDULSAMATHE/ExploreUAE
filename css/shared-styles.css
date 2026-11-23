@@ -207,13 +207,13 @@ video{width:100%;border-radius:var(--r);box-shadow:var(--shadow);background:#000
 .wrap>h2.title+.intl{margin-top:28px}
 
 
-/* ----- Images in culture,gems,adventures.landmarks ----- */
+/* ----- Images in culture, gems, adventures and landmarks ----- */
 .grid.list .card .body > img {
     display: block;
     width: 85%;
     height: 180px;
     object-fit: contain;
-    margin: 12px 0 16px;
+    margin: 12px auto 16px;
     border-radius: 8px;
     background: #f5f2eb;
 }
