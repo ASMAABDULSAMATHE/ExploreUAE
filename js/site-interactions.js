@@ -153,12 +153,23 @@ function filterEmirateCards() {
     });
 }
 
+
 document.querySelectorAll('[data-f]').forEach(button => {
     button.addEventListener('click', function () {
         currentFilter = this.getAttribute('data-f');
+
+        
+        document.querySelectorAll('[data-f]').forEach(btn => {
+            btn.classList.remove('on');
+        });
+
+        this.classList.add('on');
+
+        
         filterEmirateCards();
     });
 });
+
 
 const searchInput = document.getElementById('search');
 
@@ -217,51 +228,74 @@ for (var t = 0; t < tabBars.length; t++) {
   }
 }
 
-function compareValues(a, b) {
-    const numA = parseFloat(a.replace(/,/g, '').replace(/[^\d.-]/g, ''));
-    const numB = parseFloat(b.replace(/,/g, '').replace(/[^\d.-]/g, ''));
+function compareValues(a, b, isPrice) {
 
-    if (!isNaN(numA) && !isNaN(numB)) {
-        return numA - numB;
+    if (isPrice) {
+        var numA = parseFloat(a.replace(/,/g, '').replace(/[^\d.-]/g, ''));
+        var numB = parseFloat(b.replace(/,/g, '').replace(/[^\d.-]/g, ''));
+
+        if (!isNaN(numA) && !isNaN(numB)) {
+            return numA - numB;
+        }
     }
 
-    return a.localeCompare(b);
+    return a.localeCompare(b, undefined, {
+        sensitivity: 'base'
+    });
 }
 
 function sortTable() {
-  var column = this.cellIndex;
-  var table = this.parentNode.parentNode.parentNode;
-  var body = table.getElementsByTagName('tbody')[0];
-  var rows = body.getElementsByTagName('tr');
 
-  var list = [];
-  for (var i = 0; i < rows.length; i++) {
-    list[i] = rows[i];
-  }
+    var column = this.cellIndex;
+    var table = this.parentNode.parentNode.parentNode;
+    var body = table.getElementsByTagName('tbody')[0];
 
-  var direction = this.getAttribute('data-d') === 'a' ? 'd' : 'a';
-  this.setAttribute('data-d', direction);
-
-  for (var pass = 0; pass < list.length - 1; pass++) {
-    for (var j = 0; j < list.length - 1 - pass; j++) {
-      var result = compareValues(list[j].cells[column].textContent.replace(/^\s+|\s+$/g, ''),
-                                 list[j + 1].cells[column].textContent.replace(/^\s+|\s+$/g, ''));
-      if (direction === 'd') {
-        result = -result;
-      }
-      if (result > 0) {
-        var temp = list[j];
-        list[j] = list[j + 1];
-        list[j + 1] = temp;
-      }
+    if (!body) {
+        return;
     }
-  }
 
-  for (var r = 0; r < list.length; r++) {
-    body.appendChild(list[r]);
-  }
+    var rows = body.getElementsByTagName('tr');
+    var list = [];
+
+    for (var i = 0; i < rows.length; i++) {
+        list[i] = rows[i];
+    }
+
+    // Check whether the selected column is a price column
+    var heading = this.textContent.trim();
+
+    var isPrice = /price|cost|aed/i.test(heading);
+
+    // Toggle ascending and descending order
+    var direction = this.getAttribute('data-d') === 'a' ? 'd' : 'a';
+
+    this.setAttribute('data-d', direction);
+
+    for (var pass = 0; pass < list.length - 1; pass++) {
+
+        for (var j = 0; j < list.length - 1 - pass; j++) {
+
+            var valueA = list[j].cells[column].textContent.trim();
+            var valueB = list[j + 1].cells[column].textContent.trim();
+
+            var result = compareValues(valueA, valueB, isPrice);
+
+            if (direction === 'd') {
+                result = -result;
+            }
+
+            if (result > 0) {
+                var temp = list[j];
+                list[j] = list[j + 1];
+                list[j + 1] = temp;
+            }
+        }
+    }
+
+    for (var r = 0; r < list.length; r++) {
+        body.appendChild(list[r]);
+    }
 }
-
 var sortTables = document.getElementsByClassName('sort');
 for (var s = 0; s < sortTables.length; s++) {
   var headers = sortTables[s].getElementsByTagName('th');

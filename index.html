@@ -12,16 +12,42 @@
 <header><div class="wrap"><nav>
 <a class="logo" href="index.html">Explore<span>UAE</span></a>
 <ul><li><a href="index.html">Home</a></li><li><a href="emirates.html">Emirates</a></li><li><a href="landmarks.html">Landmarks</a></li><li><a href="adventures.html">Adventures</a></li><li><a href="food.html">Food</a></li><li><a href="culture.html">Culture</a></li><li><a href="hidden-gems.html">Hidden Gems</a></li><li><a href="plan.html">Plan Your Trip</a></li><li><a href="tips.html">Travel Tips</a></li><li><a href="events.html">Events</a></li></ul>
-<div class="tools"><button id="burger">☰</button></div>
 </nav></div></header>
 <main>
 <div class="hero">
 <div class="content hero-split"><figure class="hero-pic"><img src="images/proud-of-uae.jpg" alt="Proud of UAE: the UAE flag flying above an arched building" width="1920" height="1080"></figure><div class="hero-text"><h1>ExploreUAE</h1><p>Seven emirates. One unforgettable journey.</p><a class="btn" href="emirates.html">Start exploring</a><a class="btn alt" href="plan.html">Plan my trip</a></div></div></div>
 <div class="stats"><div class="wrap grid reveal">
-<div><b data-count="7">0</b>Emirates</div><div><b data-count="828">0</b>Metres: Burj Khalifa</div><div><b data-count="1971">0</b>Year of the Union</div><div><b data-count="200">0</b>Nationalities</div></div></div><section><div class="wrap"><h2 class="title">Why the UAE?</h2><p class="sub">From golden dunes to glittering skylines, seven emirates offer seven different adventures.</p><div class="grid"><div class="card reveal"><div class="body"><h3>Deserts</h3><p>Rolling red dunes, oases and starry night camps.</p></div></div><div class="card reveal"><div class="body"><h3>Skylines</h3><p>Home to some of the tallest buildings on Earth.</p></div></div><div class="card reveal"><div class="body"><h3>Beaches</h3><p>Gulf and Gulf of Oman coastlines with warm water.</p></div></div><div class="card reveal"><div class="body"><h3>Culture</h3><p>Hospitality and traditions that go back generations.</p></div></div></div></div></section><section><div class="wrap"><h2 class="title">Quiz: which emirate suits you?</h2><p class="sub">Answer three quick questions.</p><form id="quiz"><div class="row"><b>1. Ideal morning?</b><br><label><input type="radio" name="a" value="Dubai">Shopping and brunch</label><label><input type="radio" name="a" value="RAK">Hiking a mountain</label><label><input type="radio" name="a" value="Fujairah">Snorkelling</label></div>
-<div class="row"><b>2. Pick a souvenir</b><br><label><input type="radio" name="b" value="Abu Dhabi">Art print</label><label><input type="radio" name="b" value="Sharjah">Handmade book</label><label><input type="radio" name="b" value="Dubai">Gold jewellery</label></div>
-<div class="row"><b>3. Evening plan?</b><br><label><input type="radio" name="c" value="Abu Dhabi">Mosque at sunset</label><label><input type="radio" name="c" value="Sharjah">Museum visit</label><label><input type="radio" name="c" value="RAK">Campfire</label></div>
-<button class="btn">Show my match</button><p class="result" id="quizOut"></p></form></div></section>
+<div><b data-count="7">0</b>Emirates</div><div><b data-count="828">0</b>Metres: Burj Khalifa</div><div><b data-count="1971">0</b>Year of the Union</div><div><b data-count="200">0</b>Nationalities</div></div></div><section><div class="wrap"><h2 class="title">Why the UAE?</h2><p class="sub">From golden dunes to glittering skylines, seven emirates offer seven different adventures.</p><div class="grid"><div class="card reveal"><div class="body"><h3>Deserts</h3><p>Rolling red dunes, oases and starry night camps.</p></div></div><div class="card reveal"><div class="body"><h3>Skylines</h3><p>Home to some of the tallest buildings on Earth.</p></div></div><div class="card reveal"><div class="body"><h3>Beaches</h3><p>Gulf and Gulf of Oman coastlines with warm water.</p></div></div><div class="card reveal"><div class="body"><h3>Culture</h3><p>Hospitality and traditions that go back generations.</p></div></div></div></div></section><section><div class="wrap"><h2 class="title">Quiz: which emirate suits you?</h2><p class="sub">Answer three quick questions.</p>
+<form id="quiz">
+
+    <div class="row quiz-question">
+        <b>1. Ideal morning?</b><br>
+        <label><input type="radio" name="a" value="Dubai"> Shopping and brunch</label>
+        <label><input type="radio" name="a" value="RAK"> Hiking a mountain</label>
+        <label><input type="radio" name="a" value="Fujairah"> Snorkelling</label>
+        <label><input type="radio" name="a" value="Ajman"> Relaxing at a peaceful beach</label>
+    </div>
+
+    <div class="row quiz-question">
+        <b>2. Pick a souvenir</b><br>
+        <label><input type="radio" name="b" value="Abu Dhabi"> Art print</label>
+        <label><input type="radio" name="b" value="Sharjah"> Handmade book</label>
+        <label><input type="radio" name="b" value="Dubai"> Gold jewellery</label>
+        <label><input type="radio" name="b" value="Umm Al Quwain"> A nature-inspired keepsake</label>
+    </div>
+
+    <div class="row quiz-question">
+        <b>3. Evening plan?</b><br>
+        <label><input type="radio" name="c" value="Abu Dhabi"> Mosque at sunset</label>
+        <label><input type="radio" name="c" value="Sharjah"> Museum visit</label>
+        <label><input type="radio" name="c" value="RAK"> Campfire</label>
+    </div>
+
+    <button class="btn">Show my match</button>
+    <p class="result" id="quizOut"></p>
+
+</form>
+</div></section>
 </main>
 <div class="modal" id="modal"><div class="box"><button class="x">&times;</button><h2 id="mTitle"></h2><p id="mText"></p></div></div>
 <footer><div class="wrap"><p>&copy; ExploreUAE</p></div></footer>
