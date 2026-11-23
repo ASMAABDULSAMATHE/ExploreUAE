@@ -210,12 +210,12 @@ video{width:100%;border-radius:var(--r);box-shadow:var(--shadow);background:#000
 /* ----- Images in culture,gems,adventures.landmarks ----- */
 .grid.list .card .body > img {
     display: block;
-    width: 100%;
-    height: 210px;
+    width: 85%;
+    height: 180px;
     object-fit: contain;
     margin: 12px 0 16px;
     border-radius: 8px;
     background: #f5f2eb;
 }
-@media(max-width:860px){.intl{grid-template-columns:1fr}}
+
 
