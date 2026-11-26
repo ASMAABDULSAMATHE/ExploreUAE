@@ -1,3 +1,4 @@
+// Utility functions for class manipulation and element selection
 function hasClass(el, name) {
   return (' ' + el.className + ' ').indexOf(' ' + name + ' ') !== -1;
 }
@@ -38,6 +39,7 @@ function getWithAttribute(attr) {
   return found;
 }
 
+// Function to add commas to numbers for better readability
 function addCommas(n) {
   var s = String(n);
   var out = '';
@@ -52,18 +54,12 @@ function addCommas(n) {
   return out;
 }
 
+// Function to trim whitespace from the beginning and end of a string
 function trimText(s) {
   return s.replace(/^\s+|\s+$/g, '');
 }
 
-var burger = document.getElementById('burger');
-if (burger) {
-  burger.addEventListener('click', function () {
-    var menu = document.getElementsByTagName('nav')[0].getElementsByTagName('ul')[0];
-    setClass(menu, 'open', !hasClass(menu, 'open'));
-  });
-}
-
+// Highlight the current page in the navigation menu
 var navLinks = document.getElementsByTagName('nav')[0].getElementsByTagName('a');
 
 var path = window.location.pathname;
@@ -73,6 +69,7 @@ if (currentPage === '') {
     currentPage = 'index.html';
 }
 
+// Loop through navigation links and add 'active' class to the current page link
 for (var n = 0; n < navLinks.length; n++) {
     var href = navLinks[n].getAttribute('href');
 
@@ -81,10 +78,12 @@ for (var n = 0; n < navLinks.length; n++) {
     }
 }
 
+// Function to check if an element is visible in the viewport
 function isVisible(el) {
   return el.getBoundingClientRect().top < window.innerHeight - 40;
 }
 
+// Function to animate counting up numbers for elements with 'data-count' attribute
 function countUp(el) {
   var end = parseInt(el.getAttribute('data-count'));
   var current = 0;
@@ -99,6 +98,7 @@ function countUp(el) {
   }, 20);
 }
 
+// Function to check scroll position and trigger animations for elements in view
 function checkScroll() {
   var i;
   var reveals = document.getElementsByClassName('reveal');
@@ -108,6 +108,7 @@ function checkScroll() {
     }
   }
 
+// Animate counters and bar charts when they come into view
   var counters = getWithAttribute('data-count');
   for (i = 0; i < counters.length; i++) {
     if (isVisible(counters[i]) && counters[i].getAttribute('data-done') === null) {
@@ -126,6 +127,8 @@ function checkScroll() {
     }
   }
 }
+
+//Scroll Effects
 window.addEventListener('scroll', checkScroll);
 window.addEventListener('load', checkScroll);
 checkScroll();
@@ -133,6 +136,7 @@ checkScroll();
 let currentFilter = 'all';
 let currentSearch = '';
 
+//Filter Emirate Cards
 function filterEmirateCards() {
     const cards = document.querySelectorAll('[data-cat]');
 
@@ -182,7 +186,7 @@ if (searchInput) {
 
 var modal = document.getElementById('modal');
 
-
+//Modal 
 function openModal() {
     document.getElementById('mTitle').textContent = this.getAttribute('data-title');
     document.getElementById('mText').textContent = this.getAttribute('data-info');
@@ -207,6 +211,7 @@ if (modal) {
   });
 }
 
+// Tabs
 function tabClick() {
   var buttons = this.parentNode.getElementsByTagName('button');
   for (var i = 0; i < buttons.length; i++) {
@@ -228,6 +233,7 @@ for (var t = 0; t < tabBars.length; t++) {
   }
 }
 
+// Table Sorting 
 function compareValues(a, b, isPrice) {
 
     if (isPrice) {
@@ -261,12 +267,12 @@ function sortTable() {
         list[i] = rows[i];
     }
 
-    // Check whether the selected column is a price column
+   
     var heading = this.textContent.trim();
 
     var isPrice = /price|cost|aed/i.test(heading);
 
-    // Toggle ascending and descending order
+    
     var direction = this.getAttribute('data-d') === 'a' ? 'd' : 'a';
 
     this.setAttribute('data-d', direction);
@@ -304,7 +310,7 @@ for (var s = 0; s < sortTables.length; s++) {
   }
 }
  
-
+//Quiz 
 var quiz = document.getElementById('quiz');
 
 if (quiz) {
@@ -330,7 +336,7 @@ if (quiz) {
 
     quiz.onsubmit = function () {
 
-        // Check that all three questions have been answered
+        
         var questions = quiz.querySelectorAll('.quiz-question');
 
         var allAnswered = Array.from(questions).every(function (question) {
@@ -344,7 +350,7 @@ if (quiz) {
             return false;
         }
 
-        // Calculate scores for each emirate
+        
         var scores = {};
 
         for (var i = 0; i < places.length; i++) {
@@ -359,15 +365,15 @@ if (quiz) {
             }
         });
 
-        // Find the highest score
+        
         var highestScore = Math.max(...Object.values(scores));
 
-        // Collect all emirates with the highest score
+       
         var winners = places.filter(function (place) {
             return scores[place] === highestScore;
         });
 
-        // Randomly select a winner if there is a tie
+        
         var bestPlace = winners[Math.floor(Math.random() * winners.length)];
 
         output.textContent = 'Your match: ' + results[bestPlace];
@@ -376,6 +382,7 @@ if (quiz) {
     };
 }
 
+//Budget Calculator
 var budget = document.getElementById('budget');
 
 function calculateBudget() {
@@ -407,7 +414,7 @@ if (budget) {
 var countdown = document.getElementById('countdown');
 
 
-
+//Countdown Timer
 function showCountdown() {
   var now = new Date();
 
@@ -439,6 +446,7 @@ if (countdown) {
   setInterval(showCountdown, 1000);
 }
 
+//Form Validation
 function checkRule(rule, value) {
   var v = trimText(value);
   switch (rule) {
